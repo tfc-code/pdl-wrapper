@@ -1,0 +1,9 @@
+env
+worker/config/config.dev.properties
+worker/jobs
+*.pyc
+__pycache__
+.DS_Store
+
+# IDE Generated Files
+.idea
