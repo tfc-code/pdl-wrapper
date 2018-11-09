@@ -9,6 +9,11 @@ Add this line to your requirements.txt:
 git+git://github.com/tfc-code/pdl-wrapper@master#egg=pdlwrapper
 ```
 
+Then, in your terminal:
+```
+pip install -U -r requirements.txt
+```
+
 ## Usage
 
 ```py
