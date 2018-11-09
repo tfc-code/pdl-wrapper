@@ -1,7 +1,9 @@
 import setuptools
 
 setuptools.setup(
-    name="PDLWrapper",
+    name="pdlwrapper",
     version="1.0",
-    packages=setuptools.find_packages(),
+    author="Tech For Campaigns",
+    license="MIT",
+    packages=setuptools.find_packages()
 )
