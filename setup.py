@@ -1,6 +1,7 @@
-from distutils.core import setup
+import setuptools
 
-setup(name='PDLWrapper',
-      version='1.0',
-      py_modules=['wrapper'],
-      )
+setuptools.setup(
+    name="PDLWrapper",
+    version="1.0",
+    packages=setuptools.find_packages(),
+)
