@@ -3,7 +3,7 @@ Log calls to PDL API into DynamoDB.
 """
 
 __author__ = "Tech For Campaigns"
-__version__ = "0.1.0"
+__version__ = "1.0"
 __license__ = "MIT"
 
 import boto3
