@@ -3,6 +3,7 @@ Log calls to PDL API into DynamoDB.
 """
 
 import boto3
+import decimal
 import requests
 import time
 
@@ -37,7 +38,7 @@ class Client:
             'timestamp': int(round(time.time() * 1000000)),
             'env': self.env,
             'status_code': resp.status_code,
-            'response': resp.json()
+            'response': resp.json(parse_float=decimal.Decimal)
         }
 
         self.dynamodb_table.put_item(Item=log_item)
