@@ -6,6 +6,7 @@ import boto3
 import decimal
 import requests
 import time
+import json
 
 
 class Client:
@@ -33,12 +34,19 @@ class Client:
         params['api_key'] = self.pdl_api_key
         resp = requests.get(self.PDL_URL, params=params)
 
+        resp_json = None
+        if resp.status_code == 200:
+            try:
+                resp_json = resp.json(parse_float=decimal.Decimal)
+            except json.JSONDecodeError:
+                pass
+
         log_item = {
             'partition_key': f'{self.env}_{self.account_id}',
             'timestamp': int(round(time.time() * 1000000)),
             'env': self.env,
             'status_code': resp.status_code,
-            'response': resp.json(parse_float=decimal.Decimal)
+            'response': resp_json
         }
 
         self.dynamodb_table.put_item(Item=log_item)
